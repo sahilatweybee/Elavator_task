@@ -1,0 +1,25 @@
+
+
+body {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.container-main{
+    width: 70%;
+    height: 70%;
+    margin: auto;
+    text-align: center;
+}
+
+.elevators-container{
+    background-color: #67319e;
+    display: flex;
+}
+
+.elevator{
+    height: 500px;
+    margin: 0 5px;
+    
+}
