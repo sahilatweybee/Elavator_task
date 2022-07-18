@@ -109,7 +109,7 @@ const ElevatorMovments = function (i) {
 const check = function (i) {
     const index = array.findIndex(x => x.id == i);
     array[index].checked = !array[index].checked;
-    // maintainance();
+
         if (array[index].checked == true) {
             document.querySelector(`.elevator${array[index].id}`).style.marginTop = '580px';
             document.querySelector(`.elevator${array[index].id}`).style.marginBottom = '0';
@@ -129,7 +129,3 @@ const check = function (i) {
             }
         }
 };
-
-// const maintainance = function () {
-   
-// };
