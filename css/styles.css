@@ -1,154 +1,318 @@
-body {
-    margin: 0;
-    font-size: 1rem;
-    font-weight: 400;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-i {
-    font-size: 2rem;
-}
-
-button {
-    background-color: black;
-    color: white;
-    border-radius: 1.5rem;
-    font-size: 1.2rem;
-    padding: 2px 8px;
-}
-
-button:hover{
-    background-color: #b1e2ff;
-    color: black;
-}
-
-.floor-no {
-    background-color: black;
-    color: white;
-    border-radius: 1.5rem;
-    font-size: 1.4rem;
-    padding: 6px 14px;
+.header{
+    width: 80%;
+    font-size: 1.5rem;
+    font-family: sans-serif;
+    margin: 20px auto;
+    border-bottom: 1px solid #dee2e6;
 }
 
 .container-main {
-    width: 75%;
     margin: auto;
-    padding: 1rem;
-}
-
-.heading {
-    display: flex;
-    text-align: left;
-    font-size: 1.5rem;
-    padding-bottom: .5rem;
-    margin-bottom: 1.5rem;
-    border-bottom: 1px solid #dee2e6
-}
-
-.elevators-container {
     background-color: #006266;
-    width: 75%;
-    margin: auto;
-    padding-top: 20px;
-    height: 600px;
-}
-
-.elevators {
+    height: 868px;
+    width: 80%;
     display: flex;
     flex-direction: row;
+    align-content: stretch;
     justify-content: space-evenly;
+    align-items: center;
 }
 
-.elevator-btns {
-    display: block;
-    padding: 5px;
+.container-main .subBlock {
+    width: 300px;
+    height: 825px;
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0%;
 }
 
-.elevator-btns .btn-row {
-    flex-direction: row;
-    height: 85px;
-}
-
-.elevator-btns {
-    width: 250px;
-    background-color: #006266;
-    /* text-align: center; */
-    color: white;
-}
-
-.elevator {
-    height: 525px;
-    width: 250px;
+.container-main .blocks {
+    background-color: #acdeff;
+    width: 90%;
+    height: 800px;
+    align-items: end;
     display: flex;
     flex-direction: column-reverse;
-    background-color: #b1e2ff;
+    flex-wrap: nowrap;
+    align-content: stretch;
 }
 
-.elevator .box {
-    width: 50%;
-    height: 90px;
+.container-main .blocks .el {
     margin: 0 auto;
-    background-color: #71797E;
-}
-
-.floor-no--container{
     text-align: center;
     color: white;
-    font-weight: bold;
-    margin-top: 5px;
+    background-color: #61686d;
+    width: 70%;
+    height: 145px;
+    border: solid #61686d;
+    opacity: 0.8;
 }
 
-.footer {
+.container-main .block-buttons {
     display: flex;
-    justify-content: space-evenly;
-    margin: 10px 0;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    height: 800px;
 }
 
-.btn {
-    position: relative;
-    width: 250px;
-    text-align: center;
+.container-main .block-buttons .maintenance span {
+
     color: white;
-    font-size: 1.2rem;
-    font-weight: bolder;
+    text-align: right;
+    width: 100%;
+    font-size: small;
 }
 
-.btn input{
+.container-main .block-buttons .floor {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    align-items: baseline;
+    text-align: center;
+}
+
+.container-main .block-buttons .floor .floorNo {
+    background-color: black;
+    color: white;
+    border: solid black;
+    border-radius: 50px;
+    font-size: 20px;
+    height: 35px;
+    width: 35px;
+    line-height: 35px;
+    text-align: center;
+    margin-right: 20px;
+    float: right;
+}
+
+.container-main .block-buttons .floor .btns {
+    border: none;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    background-color: #26253d;
+    color: white;
+    cursor: pointer;
+    margin-right: 10px;
+    font-size: 2rem;
+}
+
+.container-main .block-buttons .floor .btns:hover {
+    background-color: #acdeff;
+}
+
+.container-main .block-buttons .floor .btns:hover .upSide {
+    border-bottom: 16px solid #26253d;
+}
+
+.container-main .block-buttons .floor .btns>.upSide {
+    height: 0;
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    border-bottom: 16px solid #ffffff;
+}
+
+.container-main .block-buttons .floor .btns>.downSide {
+    height: 0;
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    border-top: 16px solid white;
+}
+
+.container-main .block-buttons .floor .btns:hover .downSide {
+    border-top: 16px solid #26253d;
+}
+
+/* .floor button :hover {
+    color: #005868;
+    background-color: white;
+    
+} */
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-grid;
+    width: 60px;
+    height: 34px;
+    margin-top: 15px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
     opacity: 0;
-    height: 1rem;
-    width: 1rem;
+    width: 50px;
+    height: 50px;
 }
 
+/* The slider */
 .slider {
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 40%;
-    right: 40%;
     cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background-color: #ccc;
-    border-radius: 34px;
-    width: 3rem;
-    align-self: center;
-    transition: .4s;
+    transition: 0.4s;
+    height: 78%;
+    width: 78%;
 }
 
-.slider::before {
+.slider:before {
     position: absolute;
-    left: 4px;
-    bottom: 4px;
     content: "";
-    height: 16px;
-    width: 16px;
+    height: 18px;
+    width: 18px;
+    left: 2px;
+    bottom: 4px;
     background-color: white;
-    border-radius: 50%;
-    transition: .4s;
+    transition: 0.4s;
+    width: 40%;
 }
 
 input:checked+.slider {
     background-color: #2196F3;
 }
 
+input:focus+.slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
 input:checked+.slider:before {
-    transform: translateX(1.4rem);
+    transform: translateX(23px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+@media only screen and (max-width: 770px) {
+    .container-main {
+        width: 710px;
+        height: 800px;
+    }
+
+    .container-main .subBlock {
+        width: 130px;
+        align-content: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0%;
+    }
+
+    .container-main .blocks {
+        background-color: #acdeff;
+        width: 90%;
+        height: 740px;
+        align-items: end;
+        display: grid;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-content: stretch;
+        justify-content: center;
+        justify-items: center;
+    }
+
+    .container-main .blocks .el {
+        background-color: #61686d;
+        width: 90px;
+        height: 135px;
+        border: solid black;
+        opacity: 0.8;
+    }
+
+    .container-main .blocks .el input {
+        text-align: center;
+        width: 8px;
+        height: 50px;
+        align-items: left;
+        margin: auto;
+        background-color: #61686d;
+        opacity: 0;
+        border: none;
+        color: white;
+        position: absolute;
+    }
+
+    .container-main .blocks .el .rightDoor {
+        background-color: silver;
+        width: 35px;
+        height: 128px;
+        position: relative;
+        border: 3px solid brown;
+        left: 0px;
+        float: right;
+    }
+
+    .container-main .blocks .el .leftDoor {
+        background-color: silver;
+        width: 40px;
+        height: 128px;
+        position: relative;
+        border: 3px solid brown;
+        float: left;
+        right: 0px;
+    }
+
+    .container-main .block-buttons {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: center;
+        height: 800px;
+        width: 150px;
+    }
+
+    .container-main .block-buttons .maintenance span {
+        color: white;
+        text-align: right;
+        width: 100%;
+        font-size: small;
+    }
+
+    .container-main .block-buttons .floor {
+        display: flex;
+        display: flex;
+        justify-content: center;
+        flex-wrap: nowrap;
+        align-items: baseline;
+    }
+
+    .container-main .block-buttons .floor .floorNo {
+        background-color: white;
+        color: black;
+        border: solid black;
+        border-radius: 50px;
+        font-size: 20px;
+        height: 25px;
+        width: 25px;
+        line-height: 25px;
+        text-align: center;
+        margin-right: 20px;
+        float: right;
+    }
+
+    .container-main .block-buttons .floor .btns {
+        border: none;
+        background-color: #005868;
+        color: white;
+        font-size: 1rem;
+    }
+
+    .container-main .block-buttons .floor .btns :hover{
+        background-color: white;
+        color: #005868;
+    }
 }
