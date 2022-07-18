@@ -227,12 +227,14 @@ input:checked+.slider:before {
     .container-main .blocks .el {
         background-color: #61686d;
         width: 90px;
-        height: 135px;
+        height: 145px;
         border: solid black;
         opacity: 0.8;
+        position: relative;
+        bottom: 0;
     }
 
-    .container-main .blocks .el input {
+    .container-main .blocks .el span {
         text-align: center;
         width: 8px;
         height: 50px;
@@ -243,26 +245,6 @@ input:checked+.slider:before {
         border: none;
         color: white;
         position: absolute;
-    }
-
-    .container-main .blocks .el .rightDoor {
-        background-color: silver;
-        width: 35px;
-        height: 128px;
-        position: relative;
-        border: 3px solid brown;
-        left: 0px;
-        float: right;
-    }
-
-    .container-main .blocks .el .leftDoor {
-        background-color: silver;
-        width: 40px;
-        height: 128px;
-        position: relative;
-        border: 3px solid brown;
-        float: left;
-        right: 0px;
     }
 
     .container-main .block-buttons {

@@ -15,44 +15,124 @@ const elevator3 = document.querySelector('.elevator3');
 const switch3 = document.querySelector('.switch-3');
 
 // ------------------------------------------------Global Variables---------------------//
-let call = 0;
 let marginbottom = 0;
-let margintop = 740;
-let margin = 148;
-
+let margintop = 580;
+let movement = 145;
 let animation = null;
-let animationDoors = null;
 
 let array = [
-    { id: 1, Elevator: 1, checked: false, floor: 1 },
-    { id: 2, Elevator: 2, checked: false, floor: 1 },
-    { id: 3, Elevator: 3, checked: false, floor: 1 }
+    { id: 1, Elevator: 1, checked: false, floor: 0 },
+    { id: 2, Elevator: 2, checked: false, floor: 0 },
+    { id: 3, Elevator: 3, checked: false, floor: 0 }
 ];
 
 let floor = [
+    { floor: 0, checked: false },
     { floor: 1, checked: false },
     { floor: 2, checked: false },
     { floor: 3, checked: false },
-    { floor: 4, checked: false },
-    { floor: 5, checked: false }
+    { floor: 4, checked: false }
 ];
 
 
 // -----------------------------------------------------Methods-------------------------//
 const ElevatorMovments = function (i) {
-    
+    var closest = array.map(el => el.floor).reduce(function (prev, curr) {
+        return (Math.abs(curr - i) < Math.abs(prev - i) ? curr : prev);
+    });
+    for (let el of array) {
+        if (closest == el.floor && el.checked == false) {
+            // for (let id = el.id; id >= el.id; id--) {
+            marginbottom = Number(movement * i);
+            console.log(marginbottom);
+            margintop = 725 - marginbottom;
+            var posbtm = Number(movement * el.floor);
+            var postop = 725 - posbtm;
+            let n = el.floor + 1;
+            let pb = posbtm;
+            let pt = postop;
+
+            clearInterval(animation);
+            animation = setInterval(frame, 10);
+
+            function frame() {
+                if (postop == margintop || posbtm == marginbottom) {
+                    if (posbtm == marginbottom) {
+                        if (pt == posbtm) {
+                            pt += 145;
+                            document.querySelector(`.indicator${el.id}`).textContent = `${n}`;
+                            n++;
+                        } else {
+                            if (pb == postop) {
+                                pb += 145;
+                                n--;
+                                document.querySelector(`.indicator${el.id}`).textContent = `${n}`;
+                            }
+                        }
+                    }
+                    clearInterval(animation);
+                } else {
+                    if (postop > margintop) {
+                        if (pb == posbtm) {
+                            pb += 145;
+                            document.querySelector(`.indicator${el.id}`).textContent = `${n}`;
+                            n++;
+                        }
+                        postop--;
+                        posbtm++;
+                        document.querySelector(`.elevator${el.id}`).style.maarginTop = `${postop}px`;
+                        document.querySelector(`.elevator${el.id}`).style.marginBottom = `${posbtm}px`;
+
+                    }
+                    else {
+                        if (pt == postop) {
+                            pt += 145;
+                            n--;
+                            document.querySelector(`.indicator${el.id}`).textContent = `${n}`;
+                        }
+                        postop++;
+                        posbtm--;
+
+                        document.querySelector(`.elevator${el.id}`).style.maarginTop = `${postop}px`;
+                        document.querySelector(`.elevator${el.id}`).style.marginBottom = `${posbtm}px`;
+
+                    }
+                    array[el.id - 1].floor = i;
+                }
+            }
+            // }
+            break;
+        }
+    };
 };
 
-const btnUp = function(i){
-
-    liftMovments(i);
-};
-
-const btnDown = function(i){
-    liftMovments(i);
-};
-
-const check = function(i){
+const check = function (i) {
     const index = array.findIndex(x => x.id == i);
     array[index].checked = !array[index].checked;
-}
+    maintainance();
+};
+
+const maintainance = function () {
+    for (let el of array) {
+
+        if (el.checked == true) {
+            document.querySelector(`.elevator${el.id}`).style.marginTop = '580px';
+            document.querySelector(`.elevator${el.id}`).style.marginBottom = '0';
+            document.querySelector(`.elevator${el.id}`).style.opacity = '0.3';
+            document.querySelector(`.elevator${el.id}`).style.border = '2px solid red';
+            document.querySelector(`.el${el.id}`).value = `1`;
+            el.floor = 100;
+            //break
+        }
+        else if (el.checked == false) {
+            document.querySelector(`.elevator${el.id}`).style.border = 'none';
+            document.querySelector(`.elevator${el.id}`).style.opacity = '0.8';
+            if (el.floor > 5) {
+                el.floor = 1;
+            }
+            else {
+                el.floor = el.floor;
+            }
+        }
+    }
+};
