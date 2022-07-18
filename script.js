@@ -109,30 +109,27 @@ const ElevatorMovments = function (i) {
 const check = function (i) {
     const index = array.findIndex(x => x.id == i);
     array[index].checked = !array[index].checked;
-    maintainance();
-};
-
-const maintainance = function () {
-    for (let el of array) {
-
-        if (el.checked == true) {
-            document.querySelector(`.elevator${el.id}`).style.marginTop = '580px';
-            document.querySelector(`.elevator${el.id}`).style.marginBottom = '0';
-            document.querySelector(`.elevator${el.id}`).style.opacity = '0.3';
-            document.querySelector(`.elevator${el.id}`).style.border = '2px solid red';
-            document.querySelector(`.el${el.id}`).value = `1`;
-            el.floor = 100;
+    // maintainance();
+        if (array[index].checked == true) {
+            document.querySelector(`.elevator${array[index].id}`).style.marginTop = '580px';
+            document.querySelector(`.elevator${array[index].id}`).style.marginBottom = '0';
+            document.querySelector(`.elevator${array[index].id}`).style.opacity = '0.3';
+            document.querySelector(`.elevator${array[index].id}`).style.border = '2px solid red';
+            document.querySelector(`.el${array[index].id}`).value = `1`;
+            array[index].floor = 100;
             //break
-        }
-        else if (el.checked == false) {
-            document.querySelector(`.elevator${el.id}`).style.border = 'none';
-            document.querySelector(`.elevator${el.id}`).style.opacity = '0.8';
-            if (el.floor > 5) {
-                el.floor = 1;
+        } else {
+            document.querySelector(`.elevator${array[index].id}`).style.border = 'none';
+            document.querySelector(`.elevator${array[index].id}`).style.opacity = '0.8';
+            if (array[index].floor > 5) {
+                array[index].floor = 1;
             }
             else {
-                el.floor = el.floor;
+                array[index].floor = array[index].floor;
             }
         }
-    }
 };
+
+// const maintainance = function () {
+   
+// };
