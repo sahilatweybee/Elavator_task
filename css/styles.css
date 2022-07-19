@@ -9,7 +9,7 @@
 .container-main {
     margin: auto;
     background-color: #006266;
-    height: 868px;
+    height: 780px;
     width: 80%;
     display: flex;
     flex-direction: row;
@@ -20,34 +20,36 @@
 
 .container-main .subBlock {
     width: 300px;
-    height: 825px;
+    height: 95%;
+    margin: auto 0;
     align-content: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0%;
 }
 
 .container-main .blocks {
     background-color: #acdeff;
     width: 90%;
-    height: 800px;
+    height: 700px;
     align-items: end;
     display: flex;
     flex-direction: column-reverse;
     flex-wrap: nowrap;
-    align-content: stretch;
+    align-content: center;
 }
 
 .container-main .blocks .el {
-    margin: 0 auto;
+    margin-inline: auto;
     text-align: center;
     color: white;
     background-color: #61686d;
-    width: 70%;
-    height: 145px;
+    width: 60%;
+    height: 140px;
     border: solid #61686d;
     opacity: 0.8;
+    margin-top: 560px;
+    margin-bottom: 0;
 }
 
 .container-main .block-buttons {
@@ -56,7 +58,7 @@
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: flex-start;
-    height: 800px;
+    height: 725px;
 }
 
 .container-main .block-buttons .maintenance span {
@@ -198,8 +200,9 @@ input:checked+.slider:before {
 
 @media only screen and (max-width: 770px) {
     .container-main {
-        width: 710px;
-        height: 800px;
+        width: 90%;
+        height: 780px;
+        margin: auto;
     }
 
     .container-main .subBlock {
@@ -214,7 +217,7 @@ input:checked+.slider:before {
     .container-main .blocks {
         background-color: #acdeff;
         width: 90%;
-        height: 740px;
+        height: 725px;
         align-items: end;
         display: grid;
         flex-direction: column;
@@ -227,8 +230,8 @@ input:checked+.slider:before {
     .container-main .blocks .el {
         background-color: #61686d;
         width: 90px;
-        height: 145px;
-        border: solid black;
+        height: 140px;
+        border: solid #61686d;
         opacity: 0.8;
         position: relative;
         bottom: 0;
@@ -253,7 +256,7 @@ input:checked+.slider:before {
         justify-content: space-between;
         flex-wrap: wrap;
         align-items: center;
-        height: 800px;
+        height: 720px;
         width: 150px;
     }
 
@@ -273,8 +276,8 @@ input:checked+.slider:before {
     }
 
     .container-main .block-buttons .floor .floorNo {
-        background-color: white;
-        color: black;
+        background-color: black;
+        color: white;
         border: solid black;
         border-radius: 50px;
         font-size: 20px;
@@ -288,13 +291,8 @@ input:checked+.slider:before {
 
     .container-main .block-buttons .floor .btns {
         border: none;
-        background-color: #005868;
+        background-color: black;
         color: white;
         font-size: 1rem;
-    }
-
-    .container-main .block-buttons .floor .btns :hover{
-        background-color: white;
-        color: #005868;
     }
 }
