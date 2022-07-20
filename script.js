@@ -1,7 +1,6 @@
 'use strict';
 
 //<------------------------------------------------Global Variables-------------------->//
-const movement = 140;
 let maxHeight = 700;
 let positionBtm = 0;
 let animation = null;
@@ -47,18 +46,18 @@ const check = function (i) {
 };
 
 const ElevatorMovments = function (i) {
-    var closest = array.map(el => el.floor).reduce((prev, curr) => {
+    var closeEL = array.map(el => el.floor).reduce((prev, curr) => {
         return (Math.abs(curr - i) < Math.abs(prev - i) ? curr : prev);
     });
     for (let el of array) {
-        if (closest == el.floor && el.checked == false) {
+        if (closeEL == el.floor && el.checked == false) {
 
-            positionBtm = Number((el.floor - 1) * movement);
-            let distBtm = movement * (i - 1);
+            positionBtm = Number((el.floor - 1) * 140);
+            let distBtm = 140 * (i - 1);
             let pb = positionBtm;
 
             clearInterval(animation);
-            animation = setInterval(move());
+            animation = setInterval(move(), 3000);
 
             function move() {
                 if (positionBtm == distBtm) {
@@ -68,7 +67,7 @@ const ElevatorMovments = function (i) {
                         positionBtm++;
                         document.querySelector(`.elevator-${el.id}`).style.bottom = `${positionBtm}px`;
                         if (pb == positionBtm) {
-                            pb += movement;
+                            pb += 140;
                             document.querySelector(`.indicator-${el.id}`).innerHTML = el.floor;
                             el.floor++;
                         }
@@ -77,7 +76,7 @@ const ElevatorMovments = function (i) {
                         positionBtm--;
                         document.querySelector(`.elevator-${el.id}`).style.bottom = `${positionBtm}px`;
                         if (pb == positionBtm) {
-                            pb -= movement;
+                            pb -= 140;
                             document.querySelector(`.indicator-${el.id}`).innerHTML = el.floor;
                             el.floor--;
                         }
