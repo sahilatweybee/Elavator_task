@@ -3,10 +3,7 @@
 //<------------------------------------------------Global Variables-------------------->//
 const movement = 140;
 let marginbottom = 0;
-let margintop;
 let animation = null;
-let destBtm;
-let destTop;
 
 let array = [
     { id: 1, checked: false, floor: 1 },
@@ -16,10 +13,10 @@ let array = [
 
 let floor = [
     { floor: 1, checked: false },
+    { floor: 1, checked: false },
     { floor: 2, checked: false },
     { floor: 3, checked: false },
-    { floor: 4, checked: false },
-    { floor: 5, checked: false }
+    { floor: 4, checked: false }
 ];
 
 
@@ -30,16 +27,15 @@ const check = function (i) {
 
     for (let el of array) {
         if (el.checked == true) {
-            document.querySelector(`.elevator-${el.id}`).style.marginTop = '560px';
-            document.querySelector(`.elevator-${el.id}`).style.marginBottom = '0px';
+            document.querySelector(`.elevator-${el.id}`).style.bottom = '0px';
             document.querySelector(`.elevator-${el.id}`).style.opacity = '0.4';
             document.querySelector(`.elevator-${el.id}`).style.border = '1px solid red';
-            document.querySelector(`.indicator-${el.id}`).innerHTML = `G`;
-            el.floor = 1;
+            document.querySelector(`.indicator-${el.id}`).innerHTML = `1`;
+            el.floor = 1000000000000;
         } else {
             document.querySelector(`.elevator-${el.id}`).style.border = 'none';
             document.querySelector(`.elevator-${el.id}`).style.opacity = '0.8';
-            if (el.floor > 4) {
+            if (el.floor > array.length) {
                 el.floor = 1;
             }
             else {
@@ -50,30 +46,38 @@ const check = function (i) {
 };
 
 const ElevatorMovments = function (i) {
-    var closest = array.map(el => el.floor).reduce(function (prev, curr) {
+    var closest = array.map(el => el.floor).reduce((prev, curr) => {
         return (Math.abs(curr - i) < Math.abs(prev - i) ? curr : prev);
     });
     console.log(closest);
     for (let el of array) {
         if (closest == el.floor && el.checked == false) {
-            marginbottom = Number(el.floor * movement);
-            margintop = 700 - marginbottom;
-            let floor = i;
-            destBtm = movement * floor;
-            destTop = 700 - destBtm;
-            frame(closest);
-            // console.log("current", margintop, marginbottom, "\ndestination", destTop, destBtm);
+
+            marginbottom = Number((el.floor - 1) * movement);
+            let floor = Number(i);
+            let distBtm = movement * (floor - 1);
+            let mb = marginbottom;
+                     
+            marginbottom = distBtm;
+            el.floor = floor;
+            document.querySelector(`.elevator-${el.id}`).style.bottom = `${marginbottom}px`
+            document.querySelector(`.indicator-${el.id}`).textContent = el.floor;
+            
+            // animation = setInterval(function () {
+                
+            //     if (marginbottom < distBtm) {
+            //         marginbottom++;
+            //         document.querySelector(`.elevator-${el.id}`).style.bottom = `${marginbottom}`;
+                    
+            //     }else if(marginbottom > distBtm){
+            //         marginbottom--;
+            //         document.querySelector(`.elevator-${el.id}`).style.bottom = `${marginbottom}px`;
+            //     }
+            //     el.floor = i;
+            // },10);
+            break;
         }
     }
 };
 
-function frame(elevator) {
-    if (destBtm > marginbottom && destTop < margintop) {
-        while (marginbottom < destBtm) {
-            document.querySelector(`.elevator-${elevator.id}`).style.marginBottom = `${marginbottom}px`;
-            document.querySelector(`.elevator-${elevator.id}`).style.marginTop = `${margintop}px`;
-            ++marginbottom;
-            --margintop;
-        }
-    }
-}
+

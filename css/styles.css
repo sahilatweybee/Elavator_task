@@ -29,27 +29,26 @@
 }
 
 .container-main .blocks {
+    position: relative;
     background-color: #acdeff;
     width: 90%;
     height: 700px;
-    align-items: end;
+    align-items: center;
     display: flex;
-    flex-direction: column-reverse;
-    flex-wrap: nowrap;
+    flex-direction: column;
+    flex-wrap: wrap;
     align-content: center;
 }
 
 .container-main .blocks .el {
-    margin-inline: auto;
+    position: absolute;
+    bottom: 0;
     text-align: center;
     color: white;
     background-color: #61686d;
     width: 60%;
-    height: 140px;
-    border: solid #61686d;
+    height: 133px;
     opacity: 0.8;
-    margin-top: 560px;
-    margin-bottom: 0;
 }
 
 .container-main .block-buttons {
@@ -129,13 +128,6 @@
     border-top: 16px solid #26253d;
 }
 
-/* .floor button :hover {
-    color: #005868;
-    background-color: white;
-    
-} */
-
-/* The switch - the box around the slider */
 .switch {
     position: relative;
     display: inline-grid;
@@ -144,14 +136,12 @@
     margin-top: 15px;
 }
 
-/* Hide default HTML checkbox */
 .switch input {
     opacity: 0;
     width: 50px;
     height: 50px;
 }
 
-/* The slider */
 .slider {
     position: absolute;
     cursor: pointer;
@@ -215,25 +205,22 @@ input:checked+.slider:before {
     }
 
     .container-main .blocks {
+        position: relative;
         background-color: #acdeff;
         width: 90%;
         height: 725px;
-        align-items: end;
-        display: grid;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        align-content: stretch;
-        justify-content: center;
+        align-items: center;
         justify-items: center;
     }
 
     .container-main .blocks .el {
+        position: absolute;
+        bottom: 0;
         background-color: #61686d;
-        width: 90px;
+        width: 60%;
         height: 140px;
         border: solid #61686d;
         opacity: 0.8;
-        position: relative;
         bottom: 0;
     }
 
