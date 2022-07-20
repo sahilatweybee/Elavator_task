@@ -2,7 +2,8 @@
 
 //<------------------------------------------------Global Variables-------------------->//
 const movement = 140;
-let marginbottom = 0;
+let maxHeight = 700;
+let positionBtm = 0;
 let animation = null;
 
 let array = [
@@ -49,32 +50,40 @@ const ElevatorMovments = function (i) {
     var closest = array.map(el => el.floor).reduce((prev, curr) => {
         return (Math.abs(curr - i) < Math.abs(prev - i) ? curr : prev);
     });
-    console.log(closest);
     for (let el of array) {
         if (closest == el.floor && el.checked == false) {
 
-            marginbottom = Number((el.floor - 1) * movement);
-            let floor = Number(i);
-            let distBtm = movement * (floor - 1);
-            let mb = marginbottom;
-                     
-            marginbottom = distBtm;
-            el.floor = floor;
-            document.querySelector(`.elevator-${el.id}`).style.bottom = `${marginbottom}px`
-            document.querySelector(`.indicator-${el.id}`).textContent = el.floor;
-            
-            // animation = setInterval(function () {
-                
-            //     if (marginbottom < distBtm) {
-            //         marginbottom++;
-            //         document.querySelector(`.elevator-${el.id}`).style.bottom = `${marginbottom}`;
-                    
-            //     }else if(marginbottom > distBtm){
-            //         marginbottom--;
-            //         document.querySelector(`.elevator-${el.id}`).style.bottom = `${marginbottom}px`;
-            //     }
-            //     el.floor = i;
-            // },10);
+            positionBtm = Number((el.floor - 1) * movement);
+            let distBtm = movement * (i - 1);
+            let pb = positionBtm;
+
+            clearInterval(animation);
+            animation = setInterval(move());
+
+            function move() {
+                if (positionBtm == distBtm) {
+                    clearInterval(animation);
+                } else {
+                    if (positionBtm < distBtm) {
+                        positionBtm++;
+                        document.querySelector(`.elevator-${el.id}`).style.bottom = `${positionBtm}px`;
+                        if (pb == positionBtm) {
+                            pb += movement;
+                            document.querySelector(`.indicator-${el.id}`).innerHTML = el.floor;
+                            el.floor++;
+                        }
+                    } else if (positionBtm > distBtm) {
+
+                        positionBtm--;
+                        document.querySelector(`.elevator-${el.id}`).style.bottom = `${positionBtm}px`;
+                        if (pb == positionBtm) {
+                            pb -= movement;
+                            document.querySelector(`.indicator-${el.id}`).innerHTML = el.floor;
+                            el.floor--;
+                        }
+                    }
+                }
+            }
             break;
         }
     }
