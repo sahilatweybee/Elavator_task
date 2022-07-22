@@ -42,6 +42,7 @@
 }
 
 .container-main .blocks .el {
+    display: block;
     position: absolute;
     bottom: 0;
     text-align: center;
@@ -50,6 +51,35 @@
     width: 60%;
     height: 90px;
     opacity: 0.8;
+}
+
+.container-main .blocks .el .doors{
+    position: absolute;
+    overflow: hidden;
+    display: flex;
+    height: 80%;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.container-main .blocks .el .doors .right-door {
+    background-color: black;
+    width: 50%;
+    height: 100%;
+    position: relative;
+    border-left: solid rgb(83, 83, 83);
+    left: 0px;
+    opacity: 0.4;
+}
+
+.container-main .blocks .el .doors .left-door {
+    background-color: black;
+    width: 50%;
+    height: 100%;
+    position: relative;
+    border-right: solid rgb(83, 83, 83);
+    right: 0px;
+    opacity: 0.4;
 }
 
 .container-main .block-buttons {
@@ -112,14 +142,14 @@
     border-bottom: 16px solid #26253d;
 }
 
-.container-main .block-buttons .floor .btns>.upSide {
+.container-main .block-buttons .floor .btns >.upSide {
     height: 0;
     border-left: 13px solid transparent;
     border-right: 13px solid transparent;
     border-bottom: 16px solid #ffffff;
 }
 
-.container-main .block-buttons .floor .btns>.downSide {
+.container-main .block-buttons .floor .btns >.downSide {
     height: 0;
     border-left: 13px solid transparent;
     border-right: 13px solid transparent;
