@@ -9,8 +9,8 @@
 .container-main {
     margin: auto;
     background-color: #006266;
-    height: 780px;
-    width: 80%;
+    height: fit-content;
+    width: fit-content;
     display: flex;
     flex-direction: row;
     align-content: stretch;
@@ -19,8 +19,8 @@
 }
 
 .container-main .subBlock {
-    width: 300px;
-    height: 95%;
+    width: 200px;
+    height: fit-content;
     margin: auto 0;
     align-content: center;
     display: flex;
@@ -32,12 +32,13 @@
     position: relative;
     background-color: #acdeff;
     width: 90%;
-    height: 700px;
+    height: 800px;
     align-items: center;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     align-content: center;
+    margin-top: 25px;
 }
 
 .container-main .blocks .el {
@@ -47,7 +48,7 @@
     color: white;
     background-color: #61686d;
     width: 60%;
-    height: 133px;
+    height: 90px;
     opacity: 0.8;
 }
 
@@ -57,7 +58,8 @@
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: flex-start;
-    height: 725px;
+    height: 800px;
+    margin-top: 50px;
 }
 
 .container-main .block-buttons .maintenance span {
@@ -191,7 +193,7 @@ input:checked+.slider:before {
 @media only screen and (max-width: 770px) {
     .container-main {
         width: 90%;
-        height: 780px;
+        height: fit-content;
         margin: auto;
     }
 
@@ -208,7 +210,6 @@ input:checked+.slider:before {
         position: relative;
         background-color: #acdeff;
         width: 90%;
-        height: 725px;
         align-items: center;
         justify-items: center;
     }
@@ -218,7 +219,6 @@ input:checked+.slider:before {
         bottom: 0;
         background-color: #61686d;
         width: 60%;
-        height: 140px;
         border: solid #61686d;
         opacity: 0.8;
         bottom: 0;
@@ -243,8 +243,6 @@ input:checked+.slider:before {
         justify-content: space-between;
         flex-wrap: wrap;
         align-items: center;
-        height: 720px;
-        width: 150px;
     }
 
     .container-main .block-buttons .maintenance span {
