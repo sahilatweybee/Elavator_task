@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elevator </title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <span class="fs-4">Elevator System</span>
+    </header>
+
+    <div class="container-main">
+        <div class="subBlock">
+            <div class="block--1 blocks">
+                <div class="elevator-1 el">
+                    <span class="indicator-1">1</span>
+                    <div class="doors">
+                    <div class="left-door left-door--1"></div>
+                    <div class="right-door right-door--1"></div>
+                    </div>
+                </div>
+            </div>
+            <label class="switch">
+                <input type="checkbox" class=" switchs switch-1" onchange="check(1)">
+                <span class="slider round"></span>
+            </label>
+        </div>
+
+        <div class="subBlock">
+            <div class="block--2 blocks">
+                <div class="elevator-2 el">
+                    <span class="indicator-2">1</span>
+                    <div class="doors">
+                        <div class="left-door left-door--2"></div>
+                        <div class="right-door right-door--2"></div>
+                    </div>
+                </div>
+
+            </div>
+            <label class="switch">
+                <input type="checkbox" class=" switchs switch-2" onchange="check(2)">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <div class="subBlock">
+            <div class="block--3 blocks">
+                <div class="elevator-3 el">
+                    <span class="indicator-3">1</span>
+                    <div class="doors">
+                        <div class="left-door left-door--3"></div>
+                        <div class="right-door right-door--3"></div>
+                    </div>
+                </div>
+            </div>
+            <label class="switch">
+                <input type="checkbox" class=" switchs switch-3" onchange="check(3)">
+                <span class="slider round"></span>
+            </label>
+        </div>
+
+        <!-- ----------------------------------floor-btns----------------------------- -->
+        <div class="block-buttons">
+            <div class="maintenance"><span>MAINTENANCE</span></div>
+            <div class="floor-1 floor">
+                <div class="floorNo 1"><span>1</span></div>
+                <button class="btns btn-1-up" onclick="btnUp(1)">
+                    <div class="upSide"></div>
+                </button>
+            </div>
+            <div class="floor-2 floor">
+                <div class="floorNo 2"><span>2</span></div>
+                <button class="btns btn-2-up" onclick="btnUp(2)">
+                    <div class="upSide"></div>
+                </button>
+                <button class="btns btn-2-dwn" onclick="btnDown(2)">
+                    <div class="downSide"></div>
+                </button>
+            </div>
+            <div class="floor-3 floor">
+                <div class="floorNo 3"><span>3</span></div>
+                <button class="btns btn-3-up" onclick="btnUp(3)">
+                    <div class="upSide"></div>
+                </button>
+                <button class="btns btn-3-dwn" onclick="btnDown(3)">
+                    <div class="downSide"></div>
+                </button>
+            </div>
+            <div class="floor-4 floor">
+                <div class="floorNo 4"><span>4</span></div>
+                <button class="btns btn-4-up" onclick="btnUp(4)">
+                    <div class="upSide"></div>
+                </button>
+                <button class="btns btn-4-dwn" onclick="btnDown(4)">
+                    <div class="downSide"></div>
+                </button>
+            </div>
+            <div class="floor-5 floor">
+                <div class="floorNo 5"><span>5</span></div>
+                <button class="btns btn-5-dwn" onclick="btnDown(5)">
+                    <div class="downSide"></div>
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
